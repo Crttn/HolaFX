@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Pane;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -21,14 +22,22 @@ public class HolaFX extends Application{
         saludoLabel.setLayoutY(20);
 
         Button boton = new Button();
-        boton.setText("Esto es un boton");
+        boton.setText("Saludar a manolo");
+        boton.setTooltip(new Tooltip("Pulsame para saludar a manolo"));
         boton.setLayoutX(20);
         boton.setLayoutY(60);
+        /*
         boton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 System.out.println("Que haces :/");
             }
+        });
+        */
+
+        boton.setOnAction(actionEvent -> {
+            System.out.println("Me han pulsado");
+            saludoLabel.setText("Hola Manolo");
         });
 
         Pane root = new Pane();
